@@ -1,0 +1,34 @@
+<div class="table">
+    <table class="table-view">
+        <thead>
+            <tr>
+                <td>STT</td>
+                <td>Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    1
+                </th>
+                <th>
+                    Thanh
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    1
+                </th>
+                <th>
+                    Thanh
+                </th>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>STT</td>
+                <td>Name</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
