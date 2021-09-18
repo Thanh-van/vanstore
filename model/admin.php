@@ -8,8 +8,17 @@ class admin_model extends Basemodel{
 	}
     public function get_user()
     {
-        $query = "SELECT * FROM `user`";
+        $a = array(
+            'id' => 1
+        );
+        $query = "SELECT * FROM `user`".$this ->admin->query_select($a);
         $data = $this->admin->Select($query);
+        return $data;
+    }
+    public function d_user($id)
+    {
+        $query = "DELETE FROM `user` WHERE id =" . $id;
+        $data = $this->admin->Delete($query);
         return $data;
     }
 }

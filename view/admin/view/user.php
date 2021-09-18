@@ -1,7 +1,7 @@
 <div class="user_admin row">
     <div class="col-md-8">
         <div class="table">
-        <table class="table-view">
+        <table class="table-view w-100">
             <thead>
                 <tr>
                     <td class="tb_checkbox"><input type="checkbox" name="box_all"> </td>
@@ -59,14 +59,14 @@
     <div class="col-md-4">
         <div class="border-left rounded shadow-sm p-2 mb-5">
             <h2 class="text-center right-title mb-2">Form User</h2>
-            <div class="form_body pr-5 pl-5">
+            <div class="form_body pr-3 pl-3">
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
-                    <input type="text" class="form-control col-sm-10" id="inputPassword" placeholder="Password">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Name</label>
+                    <input type="text" class="form-control col-sm-9" id="inputPassword" placeholder="Password">
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Passs</label>
-                    <input type="password" class="form-control col-sm-10" id="inputPassword" placeholder="Password">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Passs</label>
+                    <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="Password">
                 </div>
                 <div class="d-flex flex-row-reverse">
                     <input type="submit" name="publish" value="publish" class="publish-submit btn btn-primary">

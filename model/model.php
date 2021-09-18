@@ -33,15 +33,32 @@ class Basemodel
 		$str="INSERT INTO `track_oder`(`date`, `user`, `address`, `item`, `price`, `quatity`, `tracking_number`, `status`) VALUES ('".$date."','".$user."','".$address."','".$item."','".$price."','".$quatity."','".$tracking_number."','".$status."')";
 		$this->str_connect->query($str);
 	}
-	public function delete_track_oder($id_track)
+	public function Delete($sql)
 	{
-		$str="DELETE FROM `track_oder` WHERE id_track= $id_track";
-		$this->str_connect->query($str);
+		$data = $this->str_connect->query($sql);
+		return $data;
 	}
 	public function edit_track_oder($id_track,$date,$user,$address,$item,$price,$quatity,$tracking_number,$status)
 	{
 		$str="UPDATE `track_oder` SET `date`='".$date."',`user`='".$user."',`address`='".$address."',`item`='".$item."',`price`='".$price."',`quatity`='".$quatity."',`tracking_number`='".$tracking_number."',`status`='".$status."' WHERE id_track = $id_track";
 		$this->str_connect->query($str);
+	}
+	public function query_select($a)
+	{
+		if(is_array($a)){
+			$sql = "where ";
+			$dem = 0;
+			foreach ($a as $item => $key)
+			{
+				if( $dem === (count($a)-1) )
+					$sql .= $item . '='. $key;
+				else
+					$sql .= $item . '='. $key . ' and ';
+				$dem ++;
+			}
+			return $sql;
+		}else return '';
+		
 	}
 	
 }

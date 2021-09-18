@@ -15,7 +15,8 @@ class Admin
 	
 	public function view()
 	{
-        print_r($_GET);
+        
+		$user = $this->base->get_user();
         if(isset($_GET['view'])){
             switch($_GET['view']){
                 case 'user':{
@@ -24,7 +25,6 @@ class Admin
                 }
             }
         }
-		$user = $this->base->get_user();
 		include_once 'view/admin/index.php';
 	}
 
