@@ -14,7 +14,7 @@
             <tbody>
                 <?php
                     $stt=0;
-                    foreach($data['user'] as $item => $key){
+                    foreach($user as $item => $key){
                     ?>
                         <tr>
                             <th>
@@ -31,7 +31,7 @@
                             </th>
                             <th>
                                 
-                                <a href="&user=1">
+                                <a href="<?php echo path; ?>&user=1">
                                     <i class="bi bi-pencil-square text-warning"></i>
                                 </a>
                                 <a href="" class="">

@@ -25,7 +25,10 @@ class Admin
                 }
             }
         }
-		include_once 'view/admin/index.php';
+        $data = array(
+            'user' => $user
+        );
+        View::get_layout("404",$data);
 	}
 
     private function user()

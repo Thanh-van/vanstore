@@ -15,9 +15,10 @@ class Basemodel
 		$this->str_connect=new mysqli('localhost','root','','travel');
 		mysqli_set_charset($this->str_connect,'utf8');
 	}
-	public function Select($query)
+	public function Select($table,$array)
 	{
-		$result=$this->str_connect->query($query);
+		$sql = "SELECT * from " . $table . $this->query_select($array) ;
+		$result=$this->str_connect->query($sql);
 		if ($result->num_rows==0) {
 			$data=0;
 		}else{

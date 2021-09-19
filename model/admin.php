@@ -11,8 +11,7 @@ class admin_model extends Basemodel{
         $a = array(
             'id' => 1
         );
-        $query = "SELECT * FROM `user`".$this ->admin->query_select($a);
-        $data = $this->admin->Select($query);
+        $data = $this->admin->Select("user ",$a);
         return $data;
     }
     public function d_user($id)
@@ -21,4 +20,5 @@ class admin_model extends Basemodel{
         $data = $this->admin->Delete($query);
         return $data;
     }
+    
 }
