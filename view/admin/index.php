@@ -13,13 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-    <script src="http://localhost:81/vancoder/view/admin/js/query.js"></script>
+    <script src="http://thanhvan.local/vancoder/view/admin/js/query.js"></script>
     <script src="js/read.js"></script>
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
     <link rel="stylesheet" href="http://localhost:81/vancoder/view/admin/css/style.css">
 </head>
-<?= $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
 <body translate="no">
     <div class="container-fluid">
         <div class="row">

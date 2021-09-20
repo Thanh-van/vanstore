@@ -3,41 +3,40 @@
 /**
  * 
  */
-include_once 'model/admin.php';
 session_start();
 class Admin
 {
-	private $base;
-	function __construct()
-	{
-		$this->base=new admin_model();
-	}
-	
 	public function view()
 	{
-        
-		$user = $this->base->get_user();
         if(isset($_GET['view'])){
-            switch($_GET['view']){
-                case 'user':{
-                    $this->user();
-                    break;
-                }
-            }
+            $function = $_GET['view'];
+            $this->$function();
+        }else{
+            $this -> user();
         }
-        $data = array(
-            'user' => $user
-        );
-        View::get_layout("404",$data);
 	}
 
     private function user()
     {
+        $model = View::get__model('user');
+        $user = $model->get_user();
+        $data = array(
+            'user' => $user
+        );
         if(isset($_GET['page']) && $_GET['page'] == 'admin'){
+
             echo "ahihi";
         }else{
-            echo "user";
+            // echo "user";
         }
+        View::get_layout("user",$data);
+    }
+
+    private function catalog()
+    {
+        $model = View::get__model('category');
+        $data = $model -> get__all(null);
+        View::get_layout("category",$data);
     }
 }
 

@@ -22,16 +22,23 @@
                             </th>
                             <th>
                                 <?= ++$stt; ?>
+                                <p class="id_name" style="display: none;">
+                                    <?= $key['id']  ?>
+                                </p>
                             </th>
                             <th>
-                                <?= $key['user']  ?>
+                                <p class="user_name">
+                                    <?= $key['user']  ?>
+                                </p>
                             </th>
                             <th>
-                                <?= $key['pass'] ?>
+                                <p class="pass_name">
+                                    <?= $key['pass'] ?>
+                                </p>
                             </th>
                             <th>
                                 
-                                <a href="&user=1">
+                                <a href="" class="edit">
                                     <i class="bi bi-pencil-square text-warning"></i>
                                 </a>
                                 <a href="" class="">
@@ -60,13 +67,14 @@
         <div class="border-left rounded shadow-sm p-2 mb-5">
             <h2 class="text-center right-title mb-2">Form User</h2>
             <div class="form_body pr-3 pl-3">
+                <input type="text" name="id" class='input_id' hidden>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Name</label>
-                    <input type="text" class="form-control col-sm-9" id="inputPassword" placeholder="Password">
+                    <input type="text" class="form-control col-sm-9 input_name" id="inputPassword" placeholder="Password">
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Passs</label>
-                    <input type="password" class="form-control col-sm-9" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control col-sm-9 input_pass" id="inputPassword" placeholder="Password">
                 </div>
                 <div class="d-flex flex-row-reverse">
                     <input type="submit" name="publish" value="publish" class="publish-submit btn btn-primary">
@@ -76,3 +84,11 @@
     </div>
 </div>
 
+<script>
+    $('.user_admin .edit').click(function(e){
+        e.preventDefault();
+        table_find($(this) , '.user_name' , '.input_name');
+        table_find($(this) , '.pass_name' , '.input_pass');
+        table_find($(this) , '.id_name' , '.input_id');
+    });
+</script>

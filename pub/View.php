@@ -12,6 +12,15 @@ class View{
         
         (file_exists($file_name) === false) ? require_once admin_view . $default : require_once $file_name;
         $layout = ob_get_clean();
+
         include_once 'view/admin/index.php';
+    }
+
+    public function get__model($file_name)
+    {
+        include_once 'model/' . $file_name . '.php';
+        $file_name = ucwords($file_name);
+        $model = new $file_name();
+        return $model;
     }
 }

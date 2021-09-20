@@ -1,17 +1,16 @@
 <?php
 include_once 'model.php';
-class admin_model extends Basemodel{
+class Category extends Basemodel{
     private $admin ;
 	function __construct()
 	{
 		$this->admin = new Basemodel();
 	}
-    public function get_user()
+    
+    
+    public function get__all($a)
     {
-        $a = array(
-            'id' => 1
-        );
-        $data = $this->admin->Select("user ",$a);
+        $data = $this->admin->Select("category",$a);
         return $data;
     }
     public function d_user($id)
@@ -21,4 +20,6 @@ class admin_model extends Basemodel{
         return $data;
     }
     
+
+
 }
