@@ -41,7 +41,7 @@
                                 <a href="" class="edit">
                                     <i class="bi bi-pencil-square text-warning"></i>
                                 </a>
-                                <a href="" class="">
+                                <a href="<?= param ?>&id=<?= $key['id'] ?>" class="">
                                     <i class="bi bi-trash text-danger"></i>
                                 </a>
                             </th>

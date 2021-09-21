@@ -8,7 +8,7 @@ class View{
         ob_start();
         
         $default = "user.php";
-        $file_name = admin_view . $file_name .".php";
+        $file_name = admin_view . '/view/' . $file_name .".php";
         
         (file_exists($file_name) === false) ? require_once admin_view . $default : require_once $file_name;
         $layout = ob_get_clean();

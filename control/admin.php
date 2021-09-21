@@ -23,6 +23,7 @@ class Admin
         $data = array(
             'user' => $user
         );
+        (isset($_GET['id'])) ? $model->d_user($_GET['id']) : null ;
         if(isset($_GET['page']) && $_GET['page'] == 'admin'){
 
             echo "ahihi";

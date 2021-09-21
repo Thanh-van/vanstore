@@ -2,9 +2,9 @@ RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z0-9]+)$ index.php?url=$1 [L]
+RewriteRule ^([a-zA-Z0-9]+).html$ index.php?url=$1 [L]
 
-RewriteRule "^admin/([a-zA-Z0-9]+)$" index.php?url=admin&view=$1 [L]
+RewriteRule "^admin/([a-zA-Z0-9]+).html$" index.php?url=admin&view=$1 [L]
 
 RewriteRule "^admin/user/([a-zA-Z0-9]+)$" "index.php?url=admin&view=user&page=$1"
 
