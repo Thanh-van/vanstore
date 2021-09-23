@@ -14,13 +14,12 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <script src="<?= host . '/' . name_project . admin_view; ?>js/query.js"></script>
-    <script src="js/read.js"></script>
+    <script src=" <?= host . '/' . name_project . admin_view; ?>js/read.js"></script>
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-
     <link rel="stylesheet" href="<?= host . '/' . name_project . admin_view; ?>css/style.css">
 </head>
-<body translate="no">
-    <?= param ?>
+<body >
+    <!-- < ? = param ?> -->
     <div class="container-fluid">
         <div class="row">
             <!-- sidebar -->

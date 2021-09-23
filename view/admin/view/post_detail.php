@@ -17,10 +17,7 @@
         <div class="border-left rounded shadow-sm p-3">
             <div class="editor">
                 <label for="" class="text_title">Mô tả</label>
-                <textarea name="editor2"></textarea>
-                <script>
-                        CKEDITOR.replace( 'editor2' );
-                </script>
+                <?php include_once 'ckeditor.php' ?>
             </div>
         </div>
     </div>

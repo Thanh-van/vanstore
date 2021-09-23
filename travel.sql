@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 21, 2021 lúc 07:44 AM
+-- Thời gian đã tạo: Th9 23, 2021 lúc 01:05 PM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 7.3.29
 
@@ -40,7 +40,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `cat_parent`, `sort`, `status`) VALUES
-(1, 'Home', 0, 0, '1');
+(1, 'Home', 0, 2, '0'),
+(3, 'Địa điểm', 0, 1, '0'),
+(4, 'Hà Nội', 3, 0, '0'),
+(5, 'Hà Giang', 3, 1, '0');
 
 -- --------------------------------------------------------
 
@@ -61,8 +64,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `user`, `pass`, `img`, `level`) VALUES
-(1, 'admin', '123', '', 0),
-(2, 'tesst', '123123', '', 0);
+(76, 'ad', 'a', 'd', 0),
+(95, 'khach', '1212221', '', 1);
 
 -- --------------------------------------------------------
 
@@ -107,13 +110,13 @@ ALTER TABLE `user_meta`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT cho bảng `user_meta`

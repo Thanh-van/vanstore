@@ -1,10 +1,22 @@
 <div class="catalog_admin row">
     <div class="col-md-8">
+            <div class="add_new_seach row mb-2">
+                <div class="col-md-3">
+                    <button class="add publish-submit btn bg-secondary text-white pl-3 pr-3">add</button>
+                </div>
+                <!-- <div class="col-md-9">
+                    <form method="POST">
+                        <input type="text" class="seach">
+                        <input type="submit" >
+                    </form>
+                </div> -->
+            </div>
+        
         <div class="table">
         <table class="table-view w-100">
             <thead>
                 <tr>
-                    <td>ID</td>
+                    <td class="tb_checkbox">ID</td>
                     <td>Name</td>
                     <td>Parent</td>
                     <td>Sort</td>
@@ -47,7 +59,7 @@
                                 <a class="edit">
                                     <i class="bi bi-pencil-square text-warning"></i>
                                 </a>
-                                <a href="" class="">
+                                <a href="<?= (isset($_GET['id'])) ? strstr(param, "&id", true) : param ?>&id=<?= $key['id'] ?>" class="" onclick="return confirm('Are you sure you want to delete this item?') "> 
                                     <i class="bi bi-trash text-danger"></i>
                                 </a>
                             </th>
@@ -59,7 +71,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td>ID</td>
+                    <td class="tb_checkbox">ID</td>
                     <td>Name</td>
                     <td>Parent</td>
                     <td>Sort</td>
@@ -72,25 +84,25 @@
     </div>
     <div class="col-md-4">
         <div class="border-left rounded shadow-sm p-2 mb-5">
-            <h2 class="text-center right-title mb-2">Form User</h2>
+            <h2 class="text-center right-title mb-2 text_title">Form User</h2>
             <div class="form_body pr-3 pl-3">
-                <form method="POST">
-                    <input type="text" class="input_id" name="id">
+                <form method="POST" action="<?= (isset($_GET['id'])) ? strstr(param, "&id", true) : param ?>">
+                    <input type="text" class="input_id" value="add" name="id" hidden>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Name</label>
                         <input type="text" class="form-control col-sm-9 input_name" placeholder="Name" name="name">
                     </div>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Parent</label>
-                        <input type="text" class="form-control col-sm-9 input_parent" placeholder="Parent" name="parent">
+                        <input type="text" class="form-control col-sm-9 input_parent" placeholder="Parent" name="cat_parent">
                     </div>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Sort</label>
-                        <input type="text" class="form-control col-sm-9 input_sort" placeholder="Sort" name="sort">
+                        <input type="text" class="form-control col-sm-9 input_sort" placeholder="Sort" name="sort_ctlg">
                     </div>
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Status</label>
-                        <select name="status" class="form-control col-sm-9 input_status">
+                        <select name="status_ctlg" class="form-control col-sm-9 input_status">
                             <option value="0">Show</option>
                             <option value="1">Hidden</option>
                         </select>
@@ -113,4 +125,12 @@
          table_find($(this) , '.sort_ctlg' , '.input_sort');
          table_find_option($(this) , '.status_ctlg' , '.input_status');
      });
+     $('.catalog_admin .add').click(function(e){
+        e.preventDefault();
+        $('.input_name').val('').change();
+        $('.input_parent').val('').change();
+        $('.input_sort').val('').change();
+        $('.input_id').val('add').change();
+        $('.text_title').text("Thêm Category");
+    });
 </script>

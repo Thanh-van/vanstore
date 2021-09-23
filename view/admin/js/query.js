@@ -29,4 +29,5 @@ $(document).ready(()=>{
    function table_find_option($e,$class_name,$input_set){
       $name_value = $e.parent().parent().find($class_name).text().trim();
       $($input_set).val($name_value).change();
+      
    }

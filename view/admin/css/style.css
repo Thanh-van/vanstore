@@ -74,6 +74,9 @@ table .tb_checkbox{
 tbody>:nth-child(odd) {
     background-color: #f6f7f7;
 }
+.ticket .add_form{
+  max-height: 250px;
+}
 
 /* sidebar for small screens */
 @media screen and (max-width: 767px){

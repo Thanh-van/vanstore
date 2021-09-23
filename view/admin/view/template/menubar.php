@@ -7,7 +7,7 @@
             <span class="ml-2">Dashboard</span>
         </a>
         <a href="#" class="list-group-item list-group-item-action border-0 align-items-center">
-            <span class="bi bi-box"></span>
+            <i class="bi bi-cart-plus"></i>
             <span class="ml-2">Products</span>
         </a>
 
@@ -22,8 +22,8 @@
         </button>
         <div class="collapse" id="sale-collapse" data-parent="#sidebar" style="">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Admin</a>
-                <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Khách Hàng</a>
+                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=user" class="list-group-item list-group-item-action border-0 pl-5">Admin</a>
+                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=user&lv=1" class="list-group-item list-group-item-action border-0 pl-5">Khách Hàng</a>
             </div>
         </div>
 
@@ -31,15 +31,16 @@
             class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center"
             data-toggle="collapse" data-target="#purchase-collapse" aria-expanded="true">
             <div>
-                <span class="bi bi-cart-plus"></span>
-                <span class="ml-2">Purchase</span>
+            <i class="bi bi-inboxes-fill"></i>
+                <span class="ml-2">Danh Mục</span>
             </div>
             <span class="bi bi-chevron-down small"></span>
         </button>
         <div class="collapse" id="purchase-collapse" data-parent="#sidebar" style="">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Sellers</a>
-                <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Purchase Orders</a>
+                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=catalog" class="list-group-item list-group-item-action border-0 pl-5">Category</a>
+                <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Posts</a>
+                <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Comment</a>
             </div>
         </div>
     </div>
