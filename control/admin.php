@@ -23,7 +23,7 @@ class Admin
         $user = $model->get_user();
         
         $check =  ( isset($_POST['publish']) ) ? ((isset($_POST['id']) && $_POST['id'] === 'add' ) ? $model->add_user($_POST): $model->update_user($_POST)) : null;
-        $user = (isset($_GET['lv'])) ? $model->get_user(array( 'level' => $_GET['lv'])) : $user;
+        $user = $model->get_user(array( 'level' => 0));
         $data = array(
             'user' => $user
         );
@@ -45,37 +45,63 @@ class Admin
         $category = View::get__model('category');
         $model = View::get__model('ticket');
         $all = $model -> get_ticket();
+        if(isset($_POST['publish']))
+        {
+            ($_POST['id'] === 'add') ? $model ->add_ticket($_POST) : $model ->update_ticket($_POST);
+            header("Refresh:0");
+        }
+        if(isset($_GET['id'])) { $model ->d_ticket($_GET['id']); header("Refresh:0; ?url=admin&view=ticket"); };
         $data = array(
             'ticket' => $all,
             'category' => $category->get__all(array('cat_parent' => '3'))
         );
-        if(isset($_POST['publish']))
-            print_r($_POST);
         View::get_layout("ticket",$data);
     }
-    private function Move_file($name)
+    private function customer()
     {
-        if (isset($_FILES[$name]))
-        {
-            if ($_FILES[$name]['error'] > 0)
-            {
-                echo 'File Upload Bị Lỗi';
-            }
-            else{
-                move_uploaded_file($_FILES[$name]['tmp_name'], 'view/upload/'. $_FILES[$name]['name']);
-                echo 'File Uploaded';
-            }
-        }
-        else{
-            echo 'Bạn chưa chọn file upload';
-        }
+        $model = View::get__model('customer');
+        if(isset($_GET['id'])) { $model ->d_user($_GET['id']); header("Refresh:0; ?url=admin&view=customer"); };
+        $user = $model->get_user();
+        
+        $check =  ( isset($_POST['publish']) ) ? ((isset($_POST['id']) && $_POST['id'] === 'add' ) ? $model->add_user($_POST): $model->update_user($_POST)) : null;
+        $user = $model->get_user(array( 'level' => '1'));
+        $data = array(
+            'user' => $user,
+            'lv'   => '1'
+        );
+        View::get_layout("customer",$data);
     }
     private function test()
     {   
-    
-        $this->Move_file('avatar');
-
         View::get_layout("movefile",null);
+    }
+    private function post()
+    {
+        $category = View::get__model('category');
+        $model = View::get__model('post');
+        $data = array(
+            'post' => $model->get_post(),
+            'category' =>  $category->get__all()
+        );
+        View::get_layout("post",$data);
+    }
+
+    public function post_detail()
+    {
+        print_r($_POST);
+        $category = View::get__model('category');
+        $model = View::get__model('post');
+         (isset($_GET['id'])) ?  $post = $model->get_post(array( 'id' => $_GET['id'])) :  $post = $model->get_post();
+        if(isset($_POST['publish']))
+        {
+            (isset($_GET['id'])) ? $model ->update_post($_POST) : $model ->add_post($_POST) ;
+            header("Refresh:0");
+        }
+        $data = array(
+            'post' => $post,
+            'category' =>  $category->get__all()
+        );
+        View::get_layout("post_detail",$data);
     }
 }
 

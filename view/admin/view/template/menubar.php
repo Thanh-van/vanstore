@@ -1,14 +1,14 @@
 <div class="col-md-3 col-lg-2 px-0 position-fixed h-100 bg-white shadow-sm sidebar" id="sidebar">
     <h1 class="bi bi-bootstrap text-primary d-flex my-4 justify-content-center"></h1>
     <div class="list-group rounded-0">
-        <a href="#"
+        <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>"
             class="list-group-item list-group-item-action active border-0 d-flex align-items-center">
             <span class="bi bi-border-all"></span>
             <span class="ml-2">Dashboard</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action border-0 align-items-center">
+        <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=ticket" class="list-group-item list-group-item-action border-0 align-items-center">
             <i class="bi bi-cart-plus"></i>
-            <span class="ml-2">Products</span>
+            <span class="ml-2">Ticket</span>
         </a>
 
         <button
@@ -23,7 +23,7 @@
         <div class="collapse" id="sale-collapse" data-parent="#sidebar" style="">
             <div class="list-group">
                 <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=user" class="list-group-item list-group-item-action border-0 pl-5">Admin</a>
-                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=user&lv=1" class="list-group-item list-group-item-action border-0 pl-5">Khách Hàng</a>
+                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=customer" class="list-group-item list-group-item-action border-0 pl-5">Khách Hàng</a>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
         <div class="collapse" id="purchase-collapse" data-parent="#sidebar" style="">
             <div class="list-group">
                 <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=catalog" class="list-group-item list-group-item-action border-0 pl-5">Category</a>
-                <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Posts</a>
+                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=post" class="list-group-item list-group-item-action border-0 pl-5">Posts</a>
                 <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Comment</a>
             </div>
         </div>

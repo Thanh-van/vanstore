@@ -77,6 +77,12 @@ tbody>:nth-child(odd) {
 .ticket .add_form{
   max-height: 250px;
 }
+.post_detail ul li{
+  display: block;
+}
+.custom_admin .add_form{
+  max-height: 350px;
+}
 
 /* sidebar for small screens */
 @media screen and (max-width: 767px){

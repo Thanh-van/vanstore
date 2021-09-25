@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th9 23, 2021 lúc 01:05 PM
+-- Thời gian đã tạo: Th9 25, 2021 lúc 06:49 AM
 -- Phiên bản máy phục vụ: 10.4.20-MariaDB
 -- Phiên bản PHP: 7.3.29
 
@@ -56,6 +56,9 @@ CREATE TABLE `user` (
   `user` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `img` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `sex` int(5) NOT NULL,
+  `phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `level` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -63,9 +66,9 @@ CREATE TABLE `user` (
 -- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`id`, `user`, `pass`, `img`, `level`) VALUES
-(76, 'ad', 'a', 'd', 0),
-(95, 'khach', '1212221', '', 1);
+INSERT INTO `user` (`id`, `user`, `pass`, `img`, `sex`, `phone`, `address`, `level`) VALUES
+(76, 'ad', 'a', 'd', 0, '', '', 0),
+(96, 'Thanh', '12312312', 'CF30C7F6-9D60-42DF-BC66-401B7232A20F.jpg', 0, '56466', 'ada', 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +119,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT cho bảng `user_meta`
