@@ -79,6 +79,10 @@ class Admin
     {
         $category = View::get__model('category');
         $model = View::get__model('post');
+        if (isset($_GET['id'])) {
+            $post = $model->d_post($_GET['id']);
+            header("?url=admin&view=post");
+        }
         $data = array(
             'post' => $model->get_post(),
             'category' =>  $category->get__all()
@@ -88,13 +92,12 @@ class Admin
 
     public function post_detail()
     {
-        print_r($_POST);
         $category = View::get__model('category');
         $model = View::get__model('post');
-         (isset($_GET['id'])) ?  $post = $model->get_post(array( 'id' => $_GET['id'])) :  $post = $model->get_post();
+        (isset($_GET['id'])) ?  $post = $model->get_post(array( 'id' => $_GET['id'])) :  $post = null;
         if(isset($_POST['publish']))
         {
-            (isset($_GET['id'])) ? $model ->update_post($_POST) : $model ->add_post($_POST) ;
+            (isset($_POST['id'])) ? $model ->update_post($_POST) : $model ->add_post($_POST) ;
             header("Refresh:0");
         }
         $data = array(

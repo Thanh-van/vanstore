@@ -3,7 +3,7 @@
     <div class="col-md-12">
         <div class="add_new_seach row mb-2">
             <div class="col-md-2">
-                <button class="add publish-submit btn bg-secondary text-white">add</button>
+                <a class="add publish-submit btn bg-secondary text-white" href="<?= (isset($_GET['view'])) ? strstr(param, "&v", true) : param ?>&view=post_detail">add</a>
             </div>
         </div>
         <div class="table">
@@ -42,14 +42,12 @@
                                 </p>
                             </th>
                             <th>
-                                <p class="id_category">                                    
-                                    
+                                <p class="id_category">                  
                                     <?php 
                                      foreach($data['category'] as $item1 => $vl)
-                                        if($key['id_category'] === $vl['id'] ) 
+                                        if(in_array($vl['id'],unserialize($key['id_category'])))
                                         {
-                                            echo $vl['name'];
-                                            break;
+                                            echo "<span>" . $vl['name'] . "</span><br>";
                                         }
                                     ?>
                                 </p>

@@ -53,7 +53,7 @@ class Post extends Basemodel{
     private function get_data($POST,$img)
     {
         $array = array(
-            'id_category' => $POST['id_category'],
+            'id_category' => serialize($POST['category']),
             'title' => $POST['title'],
             'description' => $POST['description'],
             'content' => $POST['content'],
