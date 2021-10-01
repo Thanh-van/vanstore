@@ -7,6 +7,7 @@ class Control
 {
 	public function destination()
 	{
+		include_once 'view/font-end/index.php';
 		if(isset($_GET['url'])){
 			switch($_GET['url']){
 				case 'admin':{
