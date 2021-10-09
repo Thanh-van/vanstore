@@ -10,8 +10,8 @@
             <span class="bi bi-chevron-down ml-1 mb-2 small"></span>
         </button>
         <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm" aria-labelledby="logout-dropdown" style="">
-            <a class="dropdown-item" href="#">Logout</a>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item logout" href="?url=admin&view=log_out">Logout</a>
+            <a class="dropdown-item " href="#">Settings</a>
         </div>
     </div>
 </nav>

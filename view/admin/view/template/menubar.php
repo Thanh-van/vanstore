@@ -6,9 +6,9 @@
             <span class="bi bi-border-all"></span>
             <span class="ml-2">Dashboard</span>
         </a>
-        <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=ticket" class="list-group-item list-group-item-action border-0 align-items-center">
+        <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=bill" class="list-group-item list-group-item-action border-0 align-items-center">
             <i class="bi bi-cart-plus"></i>
-            <span class="ml-2">Ticket</span>
+            <span class="ml-2">Bill</span>
         </a>
 
         <button
@@ -39,7 +39,7 @@
         <div class="collapse" id="purchase-collapse" data-parent="#sidebar" style="">
             <div class="list-group">
                 <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=catalog" class="list-group-item list-group-item-action border-0 pl-5">Category</a>
-                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=post" class="list-group-item list-group-item-action border-0 pl-5">Posts</a>
+                <a href="<?= (isset($_GET['view'])) ? strstr(param, "&", true) : param ?>&view=product" class="list-group-item list-group-item-action border-0 pl-5">Product</a>
                 <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Comment</a>
             </div>
         </div>

@@ -8,9 +8,9 @@ class Post extends Basemodel{
 	}
     
     
-    public function get_post($array = null , $k = null)
+    public function get_post($array = null , $k = null,$sql = null)
     {
-        $data = $this->admin->Select("post ",$array , $k);
+        $data = $this->admin->Select("post ",$array , $k , $sql);
         return $data;
     }
     public function d_post($id)

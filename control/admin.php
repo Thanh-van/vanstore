@@ -6,6 +6,22 @@
 session_start();
 class Admin
 {
+    function __construct()
+	{
+		if(isset($_SESSION['user'])) {
+            if($_SESSION['user']['level'] != 0){
+                header('Location: '. host .'/'. name_project);
+                die;
+            }
+        }else{
+            header('Location: '. host .'/'. name_project);
+        }
+	}
+    public function log_out(){
+        unset($_SESSION['user']);
+        header('Location: '. host .'/'. name_project);
+        die;
+    }
 	public function view()
 	{
         if(isset($_GET['view'])){
@@ -40,22 +56,22 @@ class Admin
         $data = $model -> get__all(null);
         View::get_layout("category",$data);
     }
-    private function ticket()
+    private function bill()
     {
-        $category = View::get__model('category');
-        $model = View::get__model('ticket');
-        $all = $model -> get_ticket();
-        if(isset($_POST['publish']))
-        {
-            ($_POST['id'] === 'add') ? $model ->add_ticket($_POST) : $model ->update_ticket($_POST);
-            header("Refresh:0");
-        }
-        if(isset($_GET['id'])) { $model ->d_ticket($_GET['id']); header("Refresh:0; ?url=admin&view=ticket"); };
+        $status = View::get__model('status');
+        $bill = View::get__model('bill');
         $data = array(
-            'ticket' => $all,
-            'category' => $category->get__all(array('cat_parent' => '3'))
+            'bill' => $bill->get_bill(),
+            'status' => $status->get_status()
         );
-        View::get_layout("ticket",$data);
+        if(isset($_GET['id']))
+        {
+            if(isset($_GET['key']) && $_GET['key'] == 2)
+                $bill->update_bill_status($_GET['id']);
+            else $bill->update_bill_status_5($_GET['id']);
+            header('Location: ?url=admin&view=bill');
+        }
+        View::get_layout("bill",$data);
     }
     private function customer()
     {
@@ -75,36 +91,70 @@ class Admin
     {   
         View::get_layout("movefile",null);
     }
-    private function post()
+    private function product()
     {
         $category = View::get__model('category');
-        $model = View::get__model('post');
+        $model = View::get__model('product');
         if (isset($_GET['id'])) {
             $post = $model->d_post($_GET['id']);
             header("?url=admin&view=post");
         }
+        $color = View::get__model('color');
         $data = array(
-            'post' => $model->get_post(),
+            'color' => $color->get_color(),
+            'product' => $model->get_product(),
             'category' =>  $category->get__all()
         );
-        View::get_layout("post",$data);
+        View::get_layout("product",$data);
     }
 
-    public function post_detail()
+    public function product_detail()
     {
         $category = View::get__model('category');
-        $model = View::get__model('post');
-        (isset($_GET['id'])) ?  $post = $model->get_post(array( 'id' => $_GET['id'])) :  $post = null;
+        $model = View::get__model('product');
+        (isset($_GET['id'])) ?  $post = $model->get_product(array( 'id' => $_GET['id'])) :  $post = null;
         if(isset($_POST['publish']))
         {
-            (isset($_POST['id'])) ? $model ->update_post($_POST) : $model ->add_post($_POST) ;
-            header("Refresh:0");
+            (isset($_POST['id'])) ? $model ->update_product($_POST) : $model ->add_product($_POST) ;
+            
         }
+        
+        $color = View::get__model('color');
+        $size = View::get__model('size');
         $data = array(
-            'post' => $post,
+            'color' => $color->get_color(),
+            'size' => $size->get_size(),
+            'product' => $post,
             'category' =>  $category->get__all()
         );
-        View::get_layout("post_detail",$data);
+        View::get_layout("product_detail",$data);
+    }
+    public function bill_table()
+    {
+        $product_md = View::get__model('product');
+        $detail = View::get__model('bill_detail');
+        $color = View::get__model('color');
+        $bill = $detail->get_bill_detail(
+            array(
+                'id_bill' => $_POST['id']
+            ));
+        $size = View::get__model('size');
+        $product =array();
+        foreach ($bill as $item => $key) {
+            $arr = $product_md->get_product(
+                array(
+                    'id' => $key['id_product']
+                )
+            );
+            array_push($product,$arr);
+        }
+        $data = array(
+            'product' => $product,
+            'bill' => $bill,
+            'color' => $color->get_color(),
+            'size' => $size->get_size()
+        );
+        include_once admin_view.'view/table_detail.php';
     }
 }
 

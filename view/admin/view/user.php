@@ -30,7 +30,7 @@
                             </th>
                             <th>
                                 <p class="user_name">
-                                    <?= $key['user']  ?>
+                                    <?= $key['mail']  ?>
                                 </p>
                             </th>
                             <th>
